@@ -32,5 +32,15 @@
     <string name="toast_stock_added_no_connectivity" translatable="true">Symbol %s added. Will refresh when network available.</string>
     <string name="toast_no_connectivity" translatable="true">Will refresh when network available.</string>
     <string name="details" translatable="true">details</string>
+    <string name="fab_desc" translatable="true">add new stock</string>
+    <string name="type_stock_symbol" translatable="true">type stock symbol</string>
+    <string name="error_description_view">error description view</string>
+    <string name="graph_for_displaying_the_price_change_over_time">graph for displaying the price change over time</string>
+    <string name="stock_symbol">stock symbol</string>
+    <string name="stock_price">stock price</string>
+    <string name="stock_price_change">stock price change</string>
+    <string name="stock_details">stock details</string>
+    <string name="stocks_details">stocks details</string>
+    <string name="widget_name">widget name</string>
 
 </resources>
