@@ -1,0 +1,12 @@
+<resources>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="widget_margin">0dp</dimen>
+    <dimen name="widget_padding">8dp</dimen>
+    <dimen name="graph_margin_top">20dp</dimen>
+    <dimen name="graph_text_size">22sp</dimen>
+    <dimen name="null_dp">0dp</dimen>
+    <dimen name="mini_margin">10sp</dimen>
+    <dimen name="graph_graph_height">300dp</dimen>
+    <dimen name="elevation">6dp</dimen>
+    <dimen name="micro_margin">4dp</dimen>
+</resources>
