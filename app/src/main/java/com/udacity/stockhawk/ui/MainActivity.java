@@ -29,6 +29,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import timber.log.Timber;
 
+import static com.google.common.base.CharMatcher.JAVA_UPPER_CASE;
 import static com.udacity.stockhawk.data.PrefUtils.getStocks;
 import static com.udacity.stockhawk.ui.DetailActivity.STOCK_DETAILS;
 
@@ -51,9 +52,9 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
     @Override
     public void onClick(String symbol) {
-        Timber.d(getString(R.string.log_symbol_clicked), symbol);
+        Timber.d("Symbol clicked: %s", symbol);
         Intent i = new Intent(this, DetailActivity.class);
-        i.putExtra(STOCK_DETAILS,symbol);
+        i.putExtra(STOCK_DETAILS, symbol);
         startActivity(i);
 
     }
@@ -100,7 +101,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         return networkInfo != null && networkInfo.isConnectedOrConnecting();
     }
 
-
     @Override
     public void onRefresh() {
 
@@ -125,20 +125,27 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     }
 
     public void button(@SuppressWarnings("UnusedParameters") View view) {
-        new AddStockDialog().show(getFragmentManager(), getString(R.string.dialog_fragment));
+        new AddStockDialog().show(getFragmentManager(), "StockDialogFragment");
     }
 
     void addStock(String symbol) {
-        if (symbol != null && !symbol.isEmpty()){
+        if (symbol != null && !symbol.isEmpty() && JAVA_UPPER_CASE.matchesAllOf(symbol)) {
             if (networkUp()) {
                 swipeRefreshLayout.setRefreshing(true);
             } else {
                 String message = getString(R.string.toast_stock_added_no_connectivity, symbol);
                 Toast.makeText(this, message, Toast.LENGTH_LONG).show();
             }
-
-            PrefUtils.addStock(this, symbol);
-            QuoteSyncJob.syncImmediately(this);
+            if(!getStocks(getApplicationContext()).contains(symbol)){
+                PrefUtils.addStock(this, symbol);
+                QuoteSyncJob.syncImmediately(this);}
+            else{
+                String message = getString(R.string.stock_in_list);
+                Toast.makeText(this, message, Toast.LENGTH_LONG).show();
+            }
+        } else {
+            String message = getString(R.string.stock_capital_letters);
+            Toast.makeText(this, message, Toast.LENGTH_LONG).show();
         }
     }
 

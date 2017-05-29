@@ -47,5 +47,7 @@
     <string name="log_symbol_clicked">Symbol clicked: %s</string>
     <string name="intent_handled">Intent handled</string>
     <string name="set_bcgr_resource">setBackgroundResource</string>
+    <string name="stock_in_list">Stock already in list!</string>
+    <string name="stock_capital_letters">Capital letters are the only accepted characters</string>
 
 </resources>
