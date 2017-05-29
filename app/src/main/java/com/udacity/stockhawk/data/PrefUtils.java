@@ -3,7 +3,6 @@ package com.udacity.stockhawk.data;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
-import android.widget.Toast;
 
 import com.udacity.stockhawk.R;
 
@@ -54,15 +53,11 @@ public final class PrefUtils {
         editor.apply();
     }
 
-    public static void addStock(Context context, String symbol) {
-        if(getStocks(context).contains(symbol)){
-        editStockPref(context, symbol, true);}
-        else{
-            Toast.makeText(context, "Sorry, choose another stock",
-                    Toast.LENGTH_LONG).show();
-        }
 
+    public static void addStock(Context context, String symbol) {
+        editStockPref(context, symbol, true);
     }
+
 
     public static void removeStock(Context context, String symbol) {
         editStockPref(context, symbol, false);

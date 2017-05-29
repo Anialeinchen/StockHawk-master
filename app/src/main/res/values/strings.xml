@@ -42,5 +42,10 @@
     <string name="stock_details">stock details</string>
     <string name="stocks_details">stocks details</string>
     <string name="widget_name">widget name</string>
+    <string name="choose_other_stock">Sorry, choose another stock</string>
+    <string name="dialog_fragment">StockDialogFragment</string>
+    <string name="log_symbol_clicked">Symbol clicked: %s</string>
+    <string name="intent_handled">Intent handled</string>
+    <string name="set_bcgr_resource">setBackgroundResource</string>
 
 </resources>

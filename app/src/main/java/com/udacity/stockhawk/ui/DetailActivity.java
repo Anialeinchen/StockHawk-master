@@ -1,5 +1,6 @@
 package com.udacity.stockhawk.ui;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -41,6 +42,7 @@ public class DetailActivity extends AppCompatActivity {
 
     @BindView(R.id.tv)
     TextView tv;
+    String details = "";
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -48,7 +50,14 @@ public class DetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_detail);
         ButterKnife.bind(this);
 
-        String details = getIntent().getStringExtra(STOCK_DETAILS);
+        Intent intent = getIntent();
+
+        Bundle extras = intent.getExtras();
+        if (extras != null) {
+            if (extras.containsKey(STOCK_DETAILS)) {
+                details = extras.getString(STOCK_DETAILS);
+            }
+        }
 
         getHistory(details);
         tv.setText(details);

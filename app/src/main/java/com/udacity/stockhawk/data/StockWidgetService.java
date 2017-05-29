@@ -108,11 +108,11 @@ public class StockWidgetService extends RemoteViewsService {
             float percChange = cv.getAsFloat(Contract.Quote.COLUMN_PERCENTAGE_CHANGE);
             if (absChange> 0){
                 remoteViews.setInt(
-                        R.id.change, "setBackgroundResource",
+                        R.id.change, getString(R.string.set_bcgr_resource),
                         R.drawable.percent_change_pill_green );
             }else{
                 remoteViews.setInt(
-                        R.id.change, "setBackgroundResource",
+                        R.id.change, getString(R.string.set_bcgr_resource),
                         R.drawable.percent_change_pill_red );
             }
             remoteViews.setTextViewText(R.id.change, percentageFormat.format(percChange / 100));
