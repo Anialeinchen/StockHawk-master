@@ -42,7 +42,8 @@ public class DetailActivity extends AppCompatActivity {
 
     @BindView(R.id.tv)
     TextView tv;
-    String details = "";
+
+    private String details = "";
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {

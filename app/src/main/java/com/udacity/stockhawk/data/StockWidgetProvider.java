@@ -18,7 +18,7 @@ import com.udacity.stockhawk.ui.MainActivity;
 public class StockWidgetProvider extends AppWidgetProvider {
     @Override
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
-        for(int appWidgetId : appWidgetIds){
+         for(int appWidgetId : appWidgetIds){
             Intent intent = new Intent(context, MainActivity.class);
             PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, 0);
 
